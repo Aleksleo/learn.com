@@ -11,14 +11,19 @@ class ShopProduct {
     public $lastName = "Author last name";
     public $firstName = "Author first name";
     public $price = 0; //Cost of the item
+
+    function __construct($title, $firstName, $lastName, $price) {
+        $this->title = $title;
+        $this->lastName = $lastName;
+        $this->firstName = $firstName;
+        $this->price = $price;
+    }
+
+    function getProducer() {
+        return "{$this->firstName} "
+            . "{$this->lastName}";
+    }
 }
 
-$product1 = new ShopProduct();
-    $product1->title = "Milk";
-    $product1->price = 50;
-    $product1->comment = "Cost in RUR currency"; //new option for the object, dynamic definition - BAD!
-    $product1->firstName = "Aleks";
-    $product1->lastName = "Leonidov";
-    print "Author: {$product1->firstName} "."{$product1->lastName}\n";
-    
-$product2 = new ShopProduct();
+$product1 = new ShopProduct("Собачье сердце", "Михаил", "Булгаков", 10);
+print "Author: {$product1->getProducer()}\n";
